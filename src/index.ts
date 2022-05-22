@@ -13,6 +13,7 @@ import {
 } from "apollo-server-core";
 import config from "config";
 import { resolvers } from "./resolvers";
+import { connectDB } from "./utils/connectDB";
 
 async function bootstrap() {
   const port = config.get("port");
@@ -48,6 +49,7 @@ async function bootstrap() {
     console.log(`App is listening on http://localhost:${port}`);
   });
   // connect to db
+  connectDB();
 }
 
 bootstrap();
